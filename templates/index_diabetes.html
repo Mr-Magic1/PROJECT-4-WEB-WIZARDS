@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+
+        .container {
+            background: #ffffff;
+            width: 420px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        input {
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #4facfe;
+            box-shadow: 0 0 5px rgba(79, 172, 254, 0.5);
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: white;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #result {
+            color: #333;
+        }
+
+        #prob {
+            color: #555;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Diabetes Prediction</h1>
+
+        <form id="diabetesForm">
+            <input type="number" name="pregnancies" placeholder="Number of Pregnancies" required>
+            <input type="number" name="glucose" placeholder="Glucose Level" required>
+            <input type="number" name="bp" placeholder="Blood Pressure" required>
+            <input type="number" name="skin" placeholder="Skin Thickness" required>
+            <input type="number" name="insulin" placeholder="Insulin Level" required>
+            <input type="number" name="bmi" placeholder="BMI" step="0.1" required>
+            <input type="number" name="dpf" placeholder="Diabetes Pedigree Function" step="0.01" required>
+            <input type="number" name="age" placeholder="Age" required>
+        </form>
+
+        <button id="predictbtn">Predict</button>
+
+        <div class="result">
+            <h3 id="result"></h3>
+            <h3 id="prob"></h3>
+        </div>
+    </div>
+
+    <script src="/static/script_diabetes.js"></script>
+</body>
+</html>
