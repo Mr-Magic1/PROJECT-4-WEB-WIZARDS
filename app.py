@@ -19,7 +19,6 @@ scaler_churn=joblib.load('scaler_churn.pkl')
 label_encoder_churn=joblib.load('label_encoders_churn.pkl')
 #CHAT BOT
 import google.generativeai as genai
-import os
 
 app=Flask(__name__)
 
