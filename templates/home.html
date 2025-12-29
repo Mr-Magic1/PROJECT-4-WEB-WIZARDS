@@ -1,31 +1,150 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOME PAGE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+
 </head>
-<body>
-    <form action="/review">
-        <button type="submit">Enter MOVIE REVIEW</button><br><br>
-    </form>
 
-    <form action="/spam">
-        <button type="submit">Enter SPam prediction</button><br><br>
-    </form>
+<body class="golla">
+    <div class="container">
+        <div class="dog">
+            <div id="A">
+                <img id="img2" src="{{ url_for('static', filename='logo.jpeg') }}" alt="">
+            </div>
+            <div id="B"> 
+            AI Prediction
+            </div>
+            <div id="C"> 
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About us</a></li>
+                    <li><a href="">Contact us</a></li>
+                </ul>
+            </div>
+        </div>
 
-    <form action="/diabetes">
-        <button type="submit">Enter Diabetes Prediction</button><br><br>
-    </form>
+        <div class="space">
 
-    <form action="/churn">
-        <button type="submit">Enter Churn Prediction</button><br><br>
-    </form>
+        </div>
 
-    <form action="/chat">
-        <button type="submit">Enter Chat Bot</button><br><br>
-    </form>
+        <div class="card_container">
+            <!-- 1st card start -->
+            <div class="card">
+                <div class="icon">
+                    <img class="img"  src="{{ url_for('static', filename='diabeties.png') }}" alt="">
 
+                    <div class="predict">
+                        <img class="dabba" src="{{ url_for('static', filename='predict.png') }}" alt="">
+                        <form action="/diabetes">
+                            <button class="button">CLICK TO PREDICT</button>
+                        </form>
+                        
+                    </div>
+                </div>
+                
+                <div class="para">
+                    <p id="para1">This diabetes prediction project uses machine learning to predict whether a person is likely to have diabetes based on medical input data. <br/><br/> The system takes important health parameters such as glucose level, blood pressure, BMI, age, and insulin level as input. <br/><br/> The data is first cleaned and preprocessed to handle missing values and improve accuracy. A machine learning classification algorithm is then trained using historical patient data. After training, the model can predict the presence or absence of diabetes for new patients.</p>
+                </div>  
+            </div>
+
+
+            <div class="card" id="flip1">
+                <div class="icon">
+                    <img class="img"  src="{{ url_for('static', filename='chatbot.png') }}" alt="">
+
+                   <div class="predict">
+                        <img class="dabba" src="{{ url_for('static', filename='predict.png') }}" alt="">
+                        <form action="/chat">
+                            <button class="button">START CONVERSATION </button>
+                        </form>
+                        
+                    </div>
+                </div>
+                
+                <div class="para">
+                    <p id="para1">This project implements a web-based conversational chatbot using Google’s Gemini large language model. <br/><br/> The system follows a client–server architecture where the frontend captures user queries and sends them to the backend through HTTP requests. The backend integrates the Gemini API to process natural language input and generate context-aware responses. <br/><br/> Proper request handling, prompt formatting, and API authentication are implemented to ensure secure and efficient communication. The chatbot responses are returned in JSON format and dynamically rendered on the web interface. This project provides hands-on experience with RESTful APIs, asynchronous communication, prompt engineering, and AI model integration </p>
+
+                </div>  
+            </div>
+
+
+            <div class="card">
+                <div class="icon">
+                    <img class="img"  src="{{ url_for('static', filename='churn.png') }}" alt="">
+
+                    <div class="predict">
+                        <img class="dabba" src="{{ url_for('static', filename='predict.png') }}" alt="">
+                        <form action="/churn">
+                            <button class="button">CLICK TO PREDICT</button>
+                        </form>
+                        
+                    </div>
+                </div>
+                
+                <div class="para">
+                    <p id="para1"> This customer churn prediction project uses machine learning techniques to predict whether a customer is likely to leave a company or continue using its services. <br/><br/> The system analyzes customer-related data such as usage patterns, service details, payment methods, and contract information. <br/><br/> The data is first cleaned and preprocessed to handle missing values and categorical variables. A machine learning classification model is then trained using historical customer data to identify patterns associated with churn behavior. Once trained, the model can predict churn for new customers</p>
+                </div>  
+            </div>
+
+
+            <div class="card" id="flip2">
+                <div class="icon">
+                    <img class="img"  src="{{ url_for('static', filename='harry potter.png') }}" alt="">
+                    <div class="predict">
+                        <img class="dabba" src="{{ url_for('static', filename='predict.png') }}" alt="">
+                        <form action="/review">
+                            <button class="button">CLICK TO PREDICT</button>
+                        </form>
+                        
+                    </div>
+                </div>
+                
+                <div class="para">
+                    <p id="para1">
+                        This movie review prediction project is based on machine learning and natural language processing techniques. <br/><br/> The main objective of this project is to analyze movie reviews given by users and predict whether the sentiment of the review is positive or negative. The system first preprocesses the text by removing unwanted symbols, stop words, and converting text into a suitable numerical format. Then, a classification algorithm is trained using labeled movie review data. After training, the model can accurately predict the sentiment of new user reviews. <br/><br/> This project helps students understand important NLP concepts such as text cleaning, feature extraction, and model training. It also provides hands-on experience in building and deploying a real-world machine learning application.</p>
+                </div>  
+
+            </div>
+
+            <div class="card">
+                <div class="icon">
+                    <img class="img"  src="{{ url_for('static', filename='spam.png') }}" alt="">
+                    <div class="predict">
+                        <img class="dabba" src="{{ url_for('static', filename='predict.png') }}" alt="">
+                        <form action="/spam">
+                            <button class="button">CLICK TO PREDICT </button>
+                        </form>
+                        
+                    </div>
+                </div>
+                
+                <div class="para">
+                    <p id="para1"> This spam email classification project uses machine learning techniques to identify whether an email is spam or not spam. <br/><br/> The main goal of this system is to protect users from unwanted and harmful emails by automatically filtering them. <br/><br/> The email text is first preprocessed by removing unnecessary symbols, stop words, and converting text into numerical features using techniques such as Bag of Words or TF-IDF. A classification algorithm is then trained on labeled email data to learn patterns commonly found in spam messages. Once trained, the model can accurately classify new incoming emails</p>
+
+                </div>
+            </div> 
+    </div>
+
+        
+    <footer>
+            <div class="creation">
+                <h4 id="create" >CREATED BY: TEAM 4 WEB WIZARDS</h>  
+            </div>
+                <div >
+                    <ul class="name1">
+                        <li>Khushboo Yadav</li>
+                        <li>Kailash Viswakarma</li>
+                        <li>Hartik verma</li>
+                        <li>Mansi Patil</li>
+   
+                    </ul>
+                </div>
+            </div>
+    </footer>
 
 </body>
 </html>
