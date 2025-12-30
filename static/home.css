@@ -58,6 +58,9 @@
     height: 65px;
     margin:3px;
 }
+.dabba:hover{
+    transform: rotate(180deg);
+}
 
 .img:hover {
     transform: translateY(-10px);

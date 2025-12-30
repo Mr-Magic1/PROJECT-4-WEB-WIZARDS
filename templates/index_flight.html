@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flight Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+            background-image: url("/static/flight.jpg");
+            background-size: cover;       
+            background-position: center;  
+            background-repeat: no-repeat; 
+        }
+
+        .container {
+            border: none;
+            border-radius: 10px;
+            background: rgb(48, 162, 101);
+            padding: 25px;
+            width: 400px;
+        }
+
+        h1 {
+            color: rgb(231, 63, 7);
+            text-align: center;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        label {
+            color: black;
+            font-weight: bold;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #b3008f;
+            transform: translateY(-5px);
+        }
+         
+        h1:hover{
+            color: darkblue;
+        }
+
+        h3 {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+
+    <h1>Flight Price Prediction</h1>
+    <form id="flightform">
+        <label>Airline</label>
+        <select name="airline" required>
+            <option value="">----------------------------SELECT AirLine---------------------------</option>
+            <option value="Indigo">IndiGo</option>
+            <option value="Vistara">Vistara</option>
+            <option value="Air_India">Air India</option>
+            <option value="SpiceJet">Spice Jet</option>
+            <option value="AirAsia">Air Asia</option>
+            <option value="GO_FIRST">GO_FIRST</option>
+        </select>
+
+        <label>Source City</label>
+        <select name="source_city" required>
+            <option value="">-------------------------SELECT Source City ------------------------</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Kolkata">Kolkata</option>
+            <option value="Hyderabad">Hyderabad</option>
+            <option value="Chennai">Chennai</option>
+        </select>
+
+        <label>Destination City</label>
+        <select name="destination_city" required>
+            <option value="" >----------------------------SELECT Destination City-----------------------</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Kolkata">Kolkata</option>
+            <option value="Hyderabad">Hyderabad</option>
+            <option value="Chennai">Chennai</option>
+        </select>
+
+        <label>Stops</label>
+        <select name="stops"  required>
+            <option value="" >--------------------------SELECT Stops--------------------------------</option>
+            <option value="zero">zero</option>
+            <option value="one">one</option>
+            <option value="two_or_more">two_or_more</option>
+        </select>
+
+        <label>Duration (hours)</label>
+        <input type="number" step="0.1" name="duration" min="0.1" required>
+
+        <button type="submit">Predict Price</button>
+    </form>
+
+    <h3>
+
+    </h3>
+
+</div>
+
+    <script src="/static/script_flight.js"></script>
+
+</body>
+</html>

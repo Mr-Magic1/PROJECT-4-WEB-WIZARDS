@@ -33,6 +33,29 @@
 
         <div class="card_container">
             <!-- 1st card start -->
+
+            <div class="card">
+                <div class="icon">
+                    <img class="img"  src="/static/flight.jpg" alt="flight image">
+
+                    <div class="predict">
+                        <img class="dabba" src="{{ url_for('static', filename='predict.png') }}" alt="">
+                        <form action="/flight">
+                            <button class="button">CLICK TO PREDICT</button>
+                        </form>
+                        
+                    </div>
+                </div>
+                
+                <div class="para">
+                    <p id="para1">This diabetes prediction project uses machine learning to predict whether a person is likely to have diabetes based on medical input data. <br/><br/> The system takes important health parameters such as glucose level, blood pressure, BMI, age, and insulin level as input. <br/><br/> The data is first cleaned and preprocessed to handle missing values and improve accuracy. A machine learning classification algorithm is then trained using historical patient data. After training, the model can predict the presence or absence of diabetes for new patients.</p>
+                </div>  
+            </div>
+
+
+
+
+
             <div class="card">
                 <div class="icon">
                     <img class="img"  src="{{ url_for('static', filename='diabeties.png') }}" alt="">

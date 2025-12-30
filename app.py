@@ -20,6 +20,11 @@ label_encoder_churn=joblib.load('label_encoders_churn.pkl')
 #CHAT BOT
 import google.generativeai as genai
 
+# Flight 
+
+model=joblib.load('model_flight.pkl')
+feature_columns=joblib.load('feature_columns.pkl')
+
 app=Flask(__name__)
 
 @app.route("/")
@@ -136,6 +141,33 @@ def gemini():
         return jsonify({'reply':'Gemini API limit exceeded. Please try again after some time'})
 
 
+
+@app.route('/flight')
+def flight():
+    return render_template('index_flight.html')
+
+@app.route('/flight/predict' ,methods=['POST'])
+def predict_flight():
+    data=request.get_json()
+    airline=data.get('airline')
+    source_city=data.get('source_city')
+    destination_city=data.get('destination_city')
+    stops=data.get('stops')
+    duration=float(data.get('duration'))
+    input=[airline,source_city,destination_city,stops,duration]
+    input_data = pd.DataFrame( np.zeros((1, len(feature_columns))),columns=feature_columns ) 
+    input_data["duration"] = duration 
+    if f"airline_{airline}" in input_data.columns: 
+        input_data[f"airline_{airline}"] = 1 
+    if f"source_city_{source_city}" in input_data.columns: 
+        input_data[f"source_city_{source_city}"] = 1 
+    if f"destination_city_{destination_city}" in input_data.columns: 
+        input_data[f"destination_city_{destination_city}"] = 1 
+    if f"stops_{stops}" in input_data.columns: 
+        input_data[f"stops_{stops}"] = 1 
+    
+    price=model.predict(input_data)[0]
+    return jsonify({'reply':price})
 
 if __name__ == "__main__":
     import os
