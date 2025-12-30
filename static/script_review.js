@@ -4,6 +4,10 @@ document.addEventListener('DOMContentLoaded',function(){
     btn.addEventListener('click',async function(e){
         e.preventDefault();
         const message=document.getElementById('message').value;
+        if (message.trim()==""){
+            alert("PLEASE type review before prediction");
+            return;
+        }
         let response=await fetch('/review/predict',{
             method:'POST',
             headers:{

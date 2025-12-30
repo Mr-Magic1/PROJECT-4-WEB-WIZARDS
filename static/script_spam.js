@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     button.addEventListener("click", async function () {
         const email = document.getElementById("email").value;
+        if (email.trim()==""){
+            alert("Please enter before prediction....");
+            return;
+        }
 
         const response = await fetch("/spam/predict", {
             method: "POST",

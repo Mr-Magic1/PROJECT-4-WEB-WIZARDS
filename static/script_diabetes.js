@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded',function(){
     let btn=document.querySelector('#predictbtn');
     let result=document.getElementById('result')
     let prob=document.getElementById('prob')
-    btn.addEventListener('click',async function(){
+    btn.addEventListener('click',async function(e){
             const values=document.querySelectorAll('input');
             const pregnancies=values[0].value;
             const glucose=values[1].value;
@@ -12,6 +12,13 @@ document.addEventListener('DOMContentLoaded',function(){
             const bmi=values[5].value;
             const dpf=values[6].value;
             const age=values[7].value;
+            let arr=[pregnancies,glucose,bp,skin,insulin,bmi,dpf,age];
+            for (let x of arr){
+                if (x==''){
+                    alert("Please Fill all fields before prediction")
+                    return;
+                }
+            }
             const res=await fetch('/diabetes/predict',{
                 method:'POST',
                 headers:{

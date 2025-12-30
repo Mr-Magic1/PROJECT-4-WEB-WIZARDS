@@ -128,9 +128,12 @@ def chat():
 
 @app.route("/chat/gemini", methods=["GET","POST"])
 def gemini():
-    data=request.get_json()
-    response = model_gemini.generate_content(data.get('ques'))
-    return jsonify({'reply':response.text})
+    try:
+        data=request.get_json()
+        response = model_gemini.generate_content(data.get('ques'))
+        return jsonify({'reply':response.text})
+    except:
+        return jsonify({'reply':'Gemini API limit exceeded. Please try again after some time'})
 
 
 
