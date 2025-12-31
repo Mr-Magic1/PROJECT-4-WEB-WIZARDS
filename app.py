@@ -31,6 +31,10 @@ app=Flask(__name__)
 def home():
     return render_template("home.html")
 
+@app.route("/about")
+def about():
+    return render_template("chiku.html")
+
 # MOVIE REVIEW PREDICTION
 
 @app.route("/review")
