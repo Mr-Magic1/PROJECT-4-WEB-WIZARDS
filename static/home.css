@@ -3,8 +3,19 @@
     padding :0;
     box-sizing: border-box;
 }
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100vh;
+    background-image: url("/static/home_back.jpg");
+    background-size: cover;       
+    background-position: center;  
+    background-repeat:repeat; 
+    }
+
 .container{
-    margin-left: 150px;
+    align-self: center;
     width:80%; 
 }
 .dog{
@@ -130,6 +141,8 @@ footer{
     display: flex;
     justify-content: space-around;
     font-size:20px;
-    font-weight: 1000px;
-    text-shadow:1px 1px  white
+    font-weight: bold;
+    color: red;
+    text-shadow:1px 1px  white;
+    padding-bottom: 20px;
 }

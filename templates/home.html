@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOME PAGE</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="stylesheet" href="/static/home.css">
 
 </head>
 
@@ -13,7 +13,7 @@
     <div class="container">
         <div class="dog">
             <div id="A">
-                <img id="img2" src="{{ url_for('static', filename='logo.jpeg') }}" alt="">
+                <img id="img2" src="/static/logo.jpeg" alt="">
             </div>
             <div id="B"> 
             AI Prediction
@@ -39,7 +39,7 @@
                     <img class="img"  src="/static/flight.jpg" alt="flight image">
 
                     <div class="predict">
-                        <img class="dabba" src="{{ url_for('static', filename='predict.png') }}" alt="">
+                        <img class="dabba" src="/static/predict.png" alt="">
                         <form action="/flight">
                             <button class="button">CLICK TO PREDICT</button>
                         </form>
@@ -48,7 +48,7 @@
                 </div>
                 
                 <div class="para">
-                    <p id="para1">This diabetes prediction project uses machine learning to predict whether a person is likely to have diabetes based on medical input data. <br/><br/> The system takes important health parameters such as glucose level, blood pressure, BMI, age, and insulin level as input. <br/><br/> The data is first cleaned and preprocessed to handle missing values and improve accuracy. A machine learning classification algorithm is then trained using historical patient data. After training, the model can predict the presence or absence of diabetes for new patients.</p>
+                    <p id="para1"> The Flight Price Prediction model is a machine learning–based system designed to estimate airline ticket prices based on various travel features. <br/><br/> The model uses historical flight data such as airline name, source city, destination city, number of stops, travel duration, and departure time to learn pricing patterns. Algorithms such as Linear Regression, Random Forest, or Gradient Boosting are used to achieve accurate predictions. <br/><br/> This model helps users compare prices in advance and make cost-effective travel decisions. It is deployed as a web application using Flask, providing real-time price predictions through a user-friendly interface..</p>
                 </div>  
             </div>
 
@@ -58,10 +58,10 @@
 
             <div class="card">
                 <div class="icon">
-                    <img class="img"  src="{{ url_for('static', filename='diabeties.png') }}" alt="">
+                    <img class="img"  src="/static/diabeties.png" alt="">
 
                     <div class="predict">
-                        <img class="dabba" src="{{ url_for('static', filename='predict.png') }}" alt="">
+                        <img class="dabba" src="/static/predict.png" alt="">
                         <form action="/diabetes">
                             <button class="button">CLICK TO PREDICT</button>
                         </form>
@@ -77,10 +77,10 @@
 
             <div class="card" id="flip1">
                 <div class="icon">
-                    <img class="img"  src="{{ url_for('static', filename='chatbot.png') }}" alt="">
+                    <img class="img"  src="/static/chatbot.png" alt="">
 
                    <div class="predict">
-                        <img class="dabba" src="{{ url_for('static', filename='predict.png') }}" alt="">
+                        <img class="dabba" src="/static/predict.png" alt="">
                         <form action="/chat">
                             <button class="button">START CONVERSATION </button>
                         </form>
@@ -97,10 +97,10 @@
 
             <div class="card">
                 <div class="icon">
-                    <img class="img"  src="{{ url_for('static', filename='churn.png') }}" alt="">
+                    <img class="img"  src="/static/churn.png" alt="">
 
                     <div class="predict">
-                        <img class="dabba" src="{{ url_for('static', filename='predict.png') }}" alt="">
+                        <img class="dabba" src="/static/predict.png" alt="">
                         <form action="/churn">
                             <button class="button">CLICK TO PREDICT</button>
                         </form>
@@ -116,9 +116,9 @@
 
             <div class="card" id="flip2">
                 <div class="icon">
-                    <img class="img"  src="{{ url_for('static', filename='harry potter.png') }}" alt="">
+                    <img class="img"  src="/static/harry potter.png" alt="">
                     <div class="predict">
-                        <img class="dabba" src="{{ url_for('static', filename='predict.png') }}" alt="">
+                        <img class="dabba" src="/static/predict.png" alt="">
                         <form action="/review">
                             <button class="button">CLICK TO PREDICT</button>
                         </form>
@@ -135,9 +135,9 @@
 
             <div class="card">
                 <div class="icon">
-                    <img class="img"  src="{{ url_for('static', filename='spam.png') }}" alt="">
+                    <img class="img"  src="/static/spam.png" alt="">
                     <div class="predict">
-                        <img class="dabba" src="{{ url_for('static', filename='predict.png') }}" alt="">
+                        <img class="dabba" src="/static/predict.png" alt="">
                         <form action="/spam">
                             <button class="button">CLICK TO PREDICT </button>
                         </form>
