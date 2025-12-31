@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded',function(){
         e.preventDefault();
         const message=document.getElementById('message').value;
         if (message.trim()==""){
-            alert("PLEASE type review before prediction");
+            alert("PLEASE enter your movie expreience before prediction");
             return;
         }
         let response=await fetch('/review/predict',{

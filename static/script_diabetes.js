@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded',function(){
             let arr=[pregnancies,glucose,bp,skin,insulin,bmi,dpf,age];
             for (let x of arr){
                 if (x==''){
-                    alert("Please Fill all fields before prediction")
+                    alert("Please Fill all fields before prediction...")
                     return;
                 }
             }

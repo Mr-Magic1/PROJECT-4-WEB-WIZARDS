@@ -3,20 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Review</title>
+    <title>movie review</title>
+<style>
+    *{
+        padding:0;
+        margin:0;
+        box-sizing:border-box;
+
+    }
+body{
+    min-height:100vh;
+    background-image:url("/static/movie.jpeg") ;
+    background-size:cover;
+    background-position: center;
+    background-attachment: fixed;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.movie{
+    background-color:rgb(84, 185, 80);
+    width:400px;
+    height:400px;
+    border-radius: 50px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border:3px solid black;
+    box-shadow:0px 0px 110px rgb(14, 13, 12);
+}
+h1{
+    margin-bottom: 40px;
+    color:rgb(240, 82, 9);
+    font-size: 50px;
+    text-shadow:1.5px 1.5px 6px yellow
+}
+#message{
+    border:1px solid black;
+    width:300px;
+    height:100px;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-bottom:80px;
+    box-shadow:0px 0px 20px black;
+    background-color: rgb(218, 196, 196)
+}
+.button{
+    background-color:blue ;
+    width:200px;
+    height:50px;
+    border-radius: 50px;
+    margin-left:50px;
+    margin-bottom:20px;
+    border:3px solid red;
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: 0px 0px 6px white;
+}
+.button:hover{
+    transform:scale(1.08);
+}
+
+</style>
+
 </head>
 <body>
-    <h1>Movie Review</h1>
+    <div class="movie">
+     <h1>Movie Review</h1>
     <form>
-        <textarea  id="message"></textarea><br>
-        <button type="reset">reset</button>
-        <button type="submit" id="button">Predict</button>
-        
+        <textarea  id="message" placeholder="review experience..."></textarea><br>
+        <button class="button" type="submit" id="button">Predict</button>
     </form>
-
     <h3 id="result"></h3>
+    </div>
+
+    
 
     <script src="/static/script_review.js"></script>
-
 </body>
 </html>

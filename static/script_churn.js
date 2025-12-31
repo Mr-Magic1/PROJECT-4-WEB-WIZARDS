@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded',function(){
     const btn=document.querySelector('button');
     const result=document.getElementById('result');
     const prob=document.getElementById('prob');
+    let crc=document.querySelector('.circle1');
     btn.addEventListener('click',async function(e){
         e.preventDefault();
         const form = document.getElementById("churnForm");
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded',function(){
             }
         });
         if (flag){
-            alert("please fill all the options before predicting");
+            alert("Please fill all the options before predicting...");
             return;
         }
         btn.innerText="Predicting..."
@@ -35,7 +36,11 @@ document.addEventListener('DOMContentLoaded',function(){
         result.innerText=" The customer is likely to "+churn['prediction'];
         btn.innerText='Predict Churn';
         prob.innerText=" The probablity that Customer will Churn : "+churn['probability']+"%";
-        
+        crc.style.setProperty("--p",`${churn['probability']}`);
+        let para=document.getElementsByTagName('p');
+        para[0].innerText="CHURN : "+churn['probability']+"%";
+        let non=100.0-parseFloat(churn['probability']);
+        para[1].innerText="NON - CHURN : "+non+"%";
 
     })
 })

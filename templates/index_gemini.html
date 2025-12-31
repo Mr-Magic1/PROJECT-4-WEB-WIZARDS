@@ -4,19 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Bot</title>
+
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            background-image: url(/static/chiku.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: repeat ; 
+            justify-content: center; 
+              
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            width: 60vw;
+            padding: 30px;
+            background-color: white;
+            opacity: 0.7;
+        }
+        form{
+            display: flex;
+            justify-content: center;
+        }
+        #button{
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        input{
+            width: 500px;
+            height: 40px;
+            border:3px solid black;
+            border-radius: 10px;
+        }
+        button{
+            width: 200px;
+            height: 60px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background-color: red;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            
+        }
+        button:hover{
+            background: green;
+            transform: translateY(-5px)
+        }
+    </style>
+
 </head>
+
 <body>
-
-
-    <form>
-        <input type="text" id="ques" placeholder="ENter your question: "><br><br>
-    </form>
-     <button id="chatbtn">ASK</button>
-     
-    <h3 id="result">
-
-    </h3>
-
+    <div class="container">
+        <form>
+        <input type="text" id="ques" placeholder="Please Ask Your Question: "><br><br>
+        </form>
+        <div id="button">
+            <button id="chatbtn">ASK</button>
+        </div>
+        
+    </div>  
+    
 
     <script src="/static/script_gemini.js"></script>
 

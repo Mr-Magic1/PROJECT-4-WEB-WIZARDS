@@ -66,19 +66,17 @@ h2{
     text-shadow:1px 1px 3px yellow;
 }
 .circle_closed{
-            
             display:flex;
+            flex-direction: column;
             align-items:center;
             justify-content:center;
-            margin-left:200px;
-            margin-top: 200px;
+            gap: 30px;
 }
 .circle1{
     width:400px;
     height:300px;
-    --p:30;
     border-radius: 50%;
-    background: conic-gradient(from 0deg,#2ecc71 0% calc(var(--p)*3.6deg),#e74c3c calc(var(--p)*3.6deg),#e74c3c 100%);
+    background: conic-gradient(from 0deg,#e74c3c 0% calc(var(--p)*3.6deg),#2ecc71 calc(var(--p)*3.6deg),#2ecc71 100%);
     
     box-shadow:0 8px 20px rgba(0 0 0 0.25);
     
@@ -97,6 +95,15 @@ h2{
 .box{
     width: 35em;
     height: 3em;
+}
+#red{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+#green{
+    display: flex;
+    align-items: center;
 }
 
 </style>
@@ -134,7 +141,7 @@ h2{
      </div>
      <div>
         <label>Tenure (months):</label><br>
-        <input class="box" type="number" name="tenure" required>
+        <input class="box" type="number" name="tenure" placeholder="Please Enter Tenure..." required>
     <br><br>
      </div>
      <div>
@@ -222,25 +229,33 @@ h2{
     </div>
     <div>
         <label>Monthly Charges:</label><br>
-        <input class="box" type="number" step="0.01" name="MonthlyCharges" required>
+        <input class="box" type="number" step="0.01" name="MonthlyCharges" placeholder="Please ENter Monthly Charges..." required>
     <br><br>
     </div>
     <DIV>
         <label>Total Charges:</label><br>
-        <input class="box" type="number" step="0.01" name="TotalCharges" required>
+        <input class="box" type="number" step="0.01" name="TotalCharges" placeholder="Please Enter Total Charges..." required>
     <br><br>
     </DIV>
     <button id="predict" type="submit">Predict Churn</button>
-    <p id="result">result</p>
-    <p id="prob">prob</p>
+    <h6 id="result"></h6>
+    <h6 id="prob"></h6>
 </form>
 
 <div class="circle_closed">
-            <div class="circle1">
-                <span class="value">30%</span>
-                
-            </div>
-     </div>
+    <div>
+        <div id="red">
+            <div style="color: red;border: 1px solid red; background-color: red; width: 15px; height: 15px;"></div>
+                <p>CHURN : </p>
+        </div>
+
+        <div id="green">
+            <div style="color: green;border: 1px solid green; background-color: green; width: 15px; height: 15px;"></div>
+                <p>NON - CHURN : </p>
+        </div>
+    </div>
+        <div class="circle1"></div>
+    </div>
 
 
 <script src="/static/script_churn.js"></script>

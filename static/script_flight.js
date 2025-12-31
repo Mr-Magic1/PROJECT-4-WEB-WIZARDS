@@ -17,13 +17,13 @@ document.addEventListener('DOMContentLoaded',function(){
         
         for (let x of arr){
             if (x==""){
-                alert("Please select required columns before predicting");
+                alert("Please select required columns before predicting...");
                 return;
             }
         }
 
         if (inputData.source_city === inputData.destination_city){
-            alert("Source and Destination city cannot be the same");
+            alert("Source and Destination city cannot be the same...");
             return;
         }
 

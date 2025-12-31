@@ -96,12 +96,10 @@
             font-size: 14px;
         }
         .circle_closed{
-            
             display:flex;
             flex-direction: column;
             align-items:center;
             justify-content:center;
-            margin-right:200px;
 }
 .circle1{
     width:200px;
@@ -111,9 +109,6 @@
     
     box-shadow:0 8px 20px rgba(0 0 0 0.25);
     
-    position:relative;
-    
-    margin-left:20px;
     
 }
 
@@ -134,7 +129,13 @@
 }
 
 @media (max-width:768px){
-
+    body{
+        flex-direction: column;
+    }
+    .circle_closed{
+        align-items: center;
+        
+    }
 }
 
     </style>
@@ -146,13 +147,13 @@
         <h1>Diabetes Prediction</h1>
 
         <form id="diabetesForm">
-            <input type="number" name="pregnancies" placeholder="Number of Pregnancies" required>
-            <input type="number" name="glucose" placeholder="Glucose Level" required>
-            <input type="number" name="bp" placeholder="Blood Pressure" required>
-            <input type="number" name="skin" placeholder="Skin Thickness" required>
-            <input type="number" name="insulin" placeholder="Insulin Level" required>
-            <input type="number" name="bmi" placeholder="BMI" step="0.1" required>
-            <input type="number" name="dpf" placeholder="Diabetes Pedigree Function" step="0.01" required>
+            <input type="number" name="pregnancies" placeholder="Number of Pregnancies(0-10)" required>
+            <input type="number" name="glucose" placeholder="Glucose Level(30-600)" required>
+            <input type="number" name="bp" placeholder="Blood Pressure(30-150)" required>
+            <input type="number" name="skin" placeholder="Skin Thickness(5-99)" required>
+            <input type="number" name="insulin" placeholder="Insulin Level(1-50)" required>
+            <input type="number" name="bmi" placeholder="BMI(10-50)" step="0.1" required>
+            <input type="number" name="dpf" placeholder="Diabetes Pedigree Function(0.01-2.5)" step="0.01" required>
             <input type="number" name="age" placeholder="Age" required>
         </form>
 
@@ -163,23 +164,22 @@
             <h3 id="prob"></h3>
         </div>
     </div>
-    <div class="circle_closed">
-            <div>
-                <div id="red">
-                    <div style="color: red;border: 1px solid red; background-color: red; width: 15px; height: 15px;"></div>
-                    <p>Percentage of being Diabetic : </p>
-                </div>
 
-                <div id="green">
-                    <div style="color: green;border: 1px solid green; background-color: green; width: 15px; height: 15px;"></div>
-                    <p>Percetange of being Non-Diabetic : </p>
-                </div>
-                
+    <div class="circle_closed">
+        <div>
+            <div id="red">
+                <div style="color: red;border: 1px solid red; background-color: red; width: 15px; height: 15px;"></div>
+                <p>Percentage of being Diabetic : </p>
             </div>
-            <div class="circle1">
-                
+
+            <div id="green">
+                <div style="color: green;border: 1px solid green; background-color: green; width: 15px; height: 15px;"></div>
+                <p>Percetange of being Non-Diabetic : </p>
             </div>
-     </div>
+        </div>
+        <div class="circle1"></div>
+
+    </div>
 
     <script src="/static/script_diabetes.js"></script>
 

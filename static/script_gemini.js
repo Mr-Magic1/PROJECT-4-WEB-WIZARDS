@@ -1,7 +1,6 @@
 console.log("JS loaded")
 document.addEventListener("DOMContentLoaded",function(){
     let button=document.getElementById('chatbtn');
-    let result=document.getElementById('result');
 
     button.addEventListener('click',async function (e) {
         button.innerText='Generating';
@@ -10,7 +9,7 @@ document.addEventListener("DOMContentLoaded",function(){
             button.innerText='Ask';
             alert('Please Enter your query!!!')
         }else{
-        console.log("10")
+        button.disabled=true;
         let response=await fetch('/chat/gemini',{
             method:'POST',
             headers:{
@@ -22,17 +21,22 @@ document.addEventListener("DOMContentLoaded",function(){
         console.log(response)
 
         const data=await response.json();
+        button.disabled=false;
         button.innerText='Ask';
 
         let form=document.querySelector('form');
+        let head2=document.createElement('h2');
         let head3=document.createElement('h3');
-        let head4=document.createElement('h4');
         let bre=document.createElement('br');
-        head3.innerText="Your Query : "+ques;
-        head4.innerText="Response : "+data.reply;
-        head4.style.color="blue";
+        head2.innerText="Your Query : "+ques;
+        head3.innerText="Response : "+data.reply;
+        head3.style.color="blue";
+        head2.style.fontWeight="bold";
+        head3.style.fontWeight="bold";
+        head2.style.fontSize="1.5rem";
+        head3.style.fontSize="1.5rem";
+        form.insertAdjacentElement('beforebegin',head2);
         form.insertAdjacentElement('beforebegin',head3);
-        form.insertAdjacentElement('beforebegin',head4);
         form.insertAdjacentElement('beforebegin',bre);
         }
     });
