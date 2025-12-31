@@ -2,144 +2,249 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Customer Churn Prediction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+    *{
+        padding:0;
+        margin:0;
+        box-sizing:border-box;
+
+    }
+body{
+    min-height:100vh;
+    background-image:url("/static/natural.jpeg") ;
+    background-size:cover;
+    background-position: center;
+    background-attachment: fixed;
+    display:flex;
+    justify-content: space-around;
+    align-items:center;
+    padding: 60px;
+}
+.churn{
+    background-color:rgb(36, 102, 139);
+    font-size:30px ;
+    border-radius: 30px;
+    padding:20px;
+    text-shadow:0.5px 0.5px 3px rgb(255, 255, 255) ;
+    font-weight: bolder;
+    border:5px solid green;
+    box-shadow: 0px 0px 30px;
+    min-width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+input[type="radio"]{
+    transform:scale(1.4);
+}
+#predict{
+width:300px;
+height:50px;
+background-color: rgb(160, 7, 7);
+font-size:30px;
+font-weight:bold;
+border:3px solid black;
+text-shadow:1px 0.5px 2px white;
+border-radius: 30px;
+
+}
+#predict:hover{
+    transform:scale(1.05);
+    cursor: pointer;
+}
+h2{
+    margin: 30px;
+}
+h2:hover{
+    transform:scale(1.03);
+}
+h2{
+    text-shadow:1px 1px 3px yellow;
+}
+.circle_closed{
+            
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            margin-left:200px;
+            margin-top: 200px;
+}
+.circle1{
+    width:400px;
+    height:300px;
+    --p:30;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg,#2ecc71 0% calc(var(--p)*3.6deg),#e74c3c calc(var(--p)*3.6deg),#e74c3c 100%);
+    
+    box-shadow:0 8px 20px rgba(0 0 0 0.25);
+    
+    position:relative;
+    
+    margin-left:20px;
+}
+
+.value{
+    position:absolute;
+    font-size :30px;
+    font-weight:1000px;
+    color:#2c3e50;
+}
+
+.box{
+    width: 35em;
+    height: 3em;
+}
+
+</style>
+
 </head>
+
 <body>
 
-<h2>Customer Churn Prediction</h2>
 
-<form id="churnForm">
-
-    <!-- Gender -->
-    <label>Gender:</label><br>
-    <input type="radio" name="gender" value="Male" required> Male
-    <input type="radio" name="gender" value="Female"> Female
+<form class="churn" id="churnForm">
+      <h2>Customer Churn Prediction</h2>
+    <div>
+        <label>Gender:</label><br>
+        <input type="radio" name="gender" value="Male" required> Male
+        <input type="radio" name="gender" value="Female"> Female
     <br><br>
-
-    <!-- Senior Citizen -->
-    <label>Senior Citizen:</label><br>
-    <input type="radio" name="SeniorCitizen" value="0" required> No
-    <input type="radio" name="SeniorCitizen" value="1"> Yes
+    </div>
+    <div>
+        <label>Senior Citizen:</label><br>
+        <input type="radio" name="SeniorCitizen" value="0" required> No
+        <input type="radio" name="SeniorCitizen" value="1"> Yes
     <br><br>
-
-    <!-- Partner -->
-    <label>Partner:</label><br>
-    <input type="radio" name="Partner" value="Yes" required> Yes
-    <input type="radio" name="Partner" value="No"> No
+    </div>
+    <div>
+        <label>Partner:</label><br>
+        <input type="radio" name="Partner" value="Yes" required> Yes
+        <input type="radio" name="Partner" value="No"> No
     <br><br>
-
-    <!-- Dependents -->
-    <label>Dependents:</label><br>
-    <input type="radio" name="Dependents" value="Yes" required> Yes
-    <input type="radio" name="Dependents" value="No"> No
+    </div>
+     <div>
+        <label>Dependents:</label><br>
+        <input type="radio" name="Dependents" value="Yes" required> Yes
+        <input type="radio" name="Dependents" value="No"> No
     <br><br>
-
-    <!-- Tenure -->
-    <label>Tenure (months):</label><br>
-    <input type="number" name="tenure" required>
+     </div>
+     <div>
+        <label>Tenure (months):</label><br>
+        <input class="box" type="number" name="tenure" required>
     <br><br>
-
-    <!-- Phone Service -->
-    <label>Phone Service:</label><br>
-    <input type="radio" name="PhoneService" value="Yes" required> Yes
-    <input type="radio" name="PhoneService" value="No"> No
+     </div>
+     <div>
+        <label>Phone Service:</label><br>
+        <input type="radio" name="PhoneService" value="Yes" required> Yes
+        <input type="radio" name="PhoneService" value="No"> No
     <br><br>
-
-    <!-- Multiple Lines -->
-    <label>Multiple Lines:</label><br>
-    <input type="radio" name="MultipleLines" value="Yes" required> Yes
-    <input type="radio" name="MultipleLines" value="No"> No
-    <input type="radio" name="MultipleLines" value="No phone service"> No phone service
+     </div>
+     <div>
+        <label>Multiple Lines:</label><br>
+        <input type="radio" name="MultipleLines" value="Yes" required> Yes
+        <input type="radio" name="MultipleLines" value="No"> No
+        <input type="radio" name="MultipleLines" value="No phone service"> No phone service
     <br><br>
-
-    <!-- Internet Service -->
-    <label>Internet Service:</label><br>
-    <input type="radio" name="InternetService" value="DSL" required> DSL
-    <input type="radio" name="InternetService" value="Fiber optic"> Fiber optic
-    <input type="radio" name="InternetService" value="No"> No
+     </div>
+     <div>
+        <label>Internet Service:</label><br>
+        <input type="radio" name="InternetService" value="DSL" required> DSL
+        <input type="radio" name="InternetService" value="Fiber optic"> Fiber optic
+        <input type="radio" name="InternetService" value="No"> No
     <br><br>
-
-    <!-- Online Security -->
-    <label>Online Security:</label><br>
-    <input type="radio" name="OnlineSecurity" value="Yes" required> Yes
-    <input type="radio" name="OnlineSecurity" value="No"> No
-    <input type="radio" name="OnlineSecurity" value="No internet service"> No internet service
+     </div>
+     <div>
+        <label>Online Security:</label><br>
+        <input type="radio" name="OnlineSecurity" value="Yes" required> Yes
+        <input type="radio" name="OnlineSecurity" value="No"> No
+        <input type="radio" name="OnlineSecurity" value="No internet service"> No internet service
     <br><br>
-
-    <!-- Online Backup -->
-    <label>Online Backup:</label><br>
-    <input type="radio" name="OnlineBackup" value="Yes" required> Yes
-    <input type="radio" name="OnlineBackup" value="No"> No
-    <input type="radio" name="OnlineBackup" value="No internet service"> No internet service
+     </div>
+    <div>
+        <label>Online Backup:</label><br>
+        <input type="radio" name="OnlineBackup" value="Yes" required> Yes
+        <input type="radio" name="OnlineBackup" value="No"> No
+        <input type="radio" name="OnlineBackup" value="No internet service"> No internet service
+        <br><br>
+    </div>
+    <div>
+        <label>Device Protection:</label><br>
+        <input type="radio" name="DeviceProtection" value="Yes" required> Yes
+        <input type="radio" name="DeviceProtection" value="No"> No
+        <input type="radio" name="DeviceProtection" value="No internet service"> No internet service
     <br><br>
-
-    <!-- Device Protection -->
-    <label>Device Protection:</label><br>
-    <input type="radio" name="DeviceProtection" value="Yes" required> Yes
-    <input type="radio" name="DeviceProtection" value="No"> No
-    <input type="radio" name="DeviceProtection" value="No internet service"> No internet service
+    </div>
+    <div>
+        <label>Tech Support:</label><br>
+        <input type="radio" name="TechSupport" value="Yes" required> Yes
+        <input type="radio" name="TechSupport" value="No"> No
+        <input type="radio" name="TechSupport" value="No internet service"> No internet service
     <br><br>
-
-    <!-- Tech Support -->
-    <label>Tech Support:</label><br>
-    <input type="radio" name="TechSupport" value="Yes" required> Yes
-    <input type="radio" name="TechSupport" value="No"> No
-    <input type="radio" name="TechSupport" value="No internet service"> No internet service
+    </div>
+    <div>
+        <label>Streaming TV:</label><br>
+        <input type="radio" name="StreamingTV" value="Yes" required> Yes
+        <input type="radio" name="StreamingTV" value="No"> No
+        <input type="radio" name="StreamingTV" value="No internet service"> No internet service
     <br><br>
-
-    <!-- Streaming TV -->
-    <label>Streaming TV:</label><br>
-    <input type="radio" name="StreamingTV" value="Yes" required> Yes
-    <input type="radio" name="StreamingTV" value="No"> No
-    <input type="radio" name="StreamingTV" value="No internet service"> No internet service
+    </div>
+    <div>
+        <label>Streaming Movies:</label><br>
+        <input type="radio" name="StreamingMovies" value="Yes" required> Yes
+        <input type="radio" name="StreamingMovies" value="No"> No
+        <input type="radio" name="StreamingMovies" value="No internet service"> No internet service
     <br><br>
-
-    <!-- Streaming Movies -->
-    <label>Streaming Movies:</label><br>
-    <input type="radio" name="StreamingMovies" value="Yes" required> Yes
-    <input type="radio" name="StreamingMovies" value="No"> No
-    <input type="radio" name="StreamingMovies" value="No internet service"> No internet service
+    </div>
+    <div>
+        <label>Contract:</label><br>
+        <input type="radio" name="Contract" value="Month-to-month" required> Month-to-month
+        <input type="radio" name="Contract" value="One year"> One year
+        <input type="radio" name="Contract" value="Two year"> Two year
     <br><br>
-
-    <!-- Contract -->
-    <label>Contract:</label><br>
-    <input type="radio" name="Contract" value="Month-to-month" required> Month-to-month
-    <input type="radio" name="Contract" value="One year"> One year
-    <input type="radio" name="Contract" value="Two year"> Two year
+    </div>
+    <div>
+        <label>Paperless Billing:</label><br>
+        <input type="radio" name="PaperlessBilling" value="Yes" required> Yes
+        <input type="radio" name="PaperlessBilling" value="No"> No
     <br><br>
-
-    <!-- Paperless Billing -->
-    <label>Paperless Billing:</label><br>
-    <input type="radio" name="PaperlessBilling" value="Yes" required> Yes
-    <input type="radio" name="PaperlessBilling" value="No"> No
+    </div>
+    <div>
+        <label>Payment Method:</label><br>
+        <input type="radio" name="PaymentMethod" value="Bank transfer (automatic)" required> Bank transfer (automatic)<br>
+        <input type="radio" name="PaymentMethod" value="Credit card (automatic)"> Credit card (automatic)<br>
+        <input type="radio" name="PaymentMethod" value="Electronic check"> Electronic check<br>
+        <input type="radio" name="PaymentMethod" value="Mailed check"> Mailed check
     <br><br>
-
-    <!-- Payment Method -->
-    <label>Payment Method:</label><br>
-    <input type="radio" name="PaymentMethod" value="Bank transfer (automatic)" required> Bank transfer (automatic)<br>
-    <input type="radio" name="PaymentMethod" value="Credit card (automatic)"> Credit card (automatic)<br>
-    <input type="radio" name="PaymentMethod" value="Electronic check"> Electronic check<br>
-    <input type="radio" name="PaymentMethod" value="Mailed check"> Mailed check
+    </div>
+    <div>
+        <label>Monthly Charges:</label><br>
+        <input class="box" type="number" step="0.01" name="MonthlyCharges" required>
     <br><br>
-
-    <!-- Charges -->
-    <label>Monthly Charges:</label><br>
-    <input type="number" step="0.01" name="MonthlyCharges" required>
+    </div>
+    <DIV>
+        <label>Total Charges:</label><br>
+        <input class="box" type="number" step="0.01" name="TotalCharges" required>
     <br><br>
-
-    <label>Total Charges:</label><br>
-    <input type="number" step="0.01" name="TotalCharges" required>
-    <br><br>
-
-    <button type="submit">Predict Churn</button>
-
+    </DIV>
+    <button id="predict" type="submit">Predict Churn</button>
+    <p id="result">result</p>
+    <p id="prob">prob</p>
 </form>
 
-<h3 id="result">
-    
-</h3>
+<div class="circle_closed">
+            <div class="circle1">
+                <span class="value">30%</span>
+                
+            </div>
+     </div>
+
 
 <script src="/static/script_churn.js"></script>
 
 </body>
 </html>
+

@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded',function(){
     let btn=document.querySelector('#predictbtn');
-    let result=document.getElementById('result')
-    let prob=document.getElementById('prob')
+    let result=document.getElementById('result');
+    let prob=document.getElementById('prob');
+    let crc=document.querySelector('.circle1');
     btn.addEventListener('click',async function(e){
             const values=document.querySelectorAll('input');
             const pregnancies=values[0].value;
@@ -38,7 +39,12 @@ document.addEventListener('DOMContentLoaded',function(){
             const data=await res.json();
             console.log(data);
             result.innerText="The Prediction : " + data['prediction'];
-            prob.innerText="The Probability of having disease: " + data['probability'];
+            prob.innerText="The Percentage of patient having diabtes : " + data['probability'];
+            crc.style.setProperty("--p",`${data['probability']}`);
+            let para=document.getElementsByTagName('p');
+            para[0].innerText="Percentage of being Diabetic : "+data['probability']+"%";
+            let non=100.0-parseFloat(data['probability']);
+            para[1].innerText="Percetange of being Non-Diabetic : "+non+"%";
             
         })
 })

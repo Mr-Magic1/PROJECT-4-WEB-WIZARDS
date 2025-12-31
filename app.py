@@ -118,8 +118,8 @@ def predict_churn():
     
     prediction = model_churn.predict(user_scaled)
     result = "CHURN" if prediction[0] == 1 else "NOT CHURN"
-    
-    return jsonify({'prediction':result})
+    prob=model_churn.predict_proba(user_scaled)
+    return jsonify({'prediction':result,'probability':prob[0][1]*100})
 
 
 # CHAT BOT

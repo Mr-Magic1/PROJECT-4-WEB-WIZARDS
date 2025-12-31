@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded',function(){
     const btn=document.querySelector('button');
     const result=document.getElementById('result');
+    const prob=document.getElementById('prob');
     btn.addEventListener('click',async function(e){
         e.preventDefault();
         const form = document.getElementById("churnForm");
@@ -31,9 +32,10 @@ document.addEventListener('DOMContentLoaded',function(){
         });
 
         const churn=await response.json();
-        result.innerText=" The customer is likely to "+churn['prediction']
-        btn.innerText='Predict Churn'
-
+        result.innerText=" The customer is likely to "+churn['prediction'];
+        btn.innerText='Predict Churn';
+        prob.innerText=" The probablity that Customer will Churn : "+churn['probability']+"%";
+        
 
     })
 })
