@@ -1,5 +1,8 @@
 from flask import Flask,render_template,request,jsonify
 import joblib
+import os
+from dotenv import load_dotenv
+
 #movie
 model_review=joblib.load("model_review.pkl")
 vectorizer=joblib.load("vectorizer.pkl")
@@ -127,9 +130,18 @@ def predict_churn():
 
 
 # CHAT BOT
+load_dotenv()
 
-genai.configure(api_key="AIzaSyB_3qxeU-bpssyv17JNS7its1DPq9huRS8")
-model_gemini = genai.GenerativeModel("gemini-2.5-flash")
+
+def attempt(api):
+    genai.configure(api_key=api)
+    model_gemini = genai.GenerativeModel("gemini-2.5-flash")
+    try:
+        data=request.get_json()
+        response = model_gemini.generate_content(data.get('ques'))
+        return response.text
+    except:
+        return "exceeded"
 
 @app.route('/chat')
 def chat():
@@ -137,13 +149,25 @@ def chat():
 
 @app.route("/chat/gemini", methods=["GET","POST"])
 def gemini():
-    try:
-        data=request.get_json()
-        response = model_gemini.generate_content(data.get('ques'))
-        return jsonify({'reply':response.text})
-    except:
-        return jsonify({'reply':'Gemini API limit exceeded. Please try again after some time'})
-
+    for i in range(1,5):
+        if i==1:
+            response=attempt(os.getenv("GEMINI_API_KEY1"))
+            if (response!="exceeded"):
+                return ({'reply':response})
+        elif i==2:
+            response=attempt(os.getenv("GEMINI_API_KEY2"))
+            if (response!="exceeded"):
+                return ({'reply':response})
+        elif i==3:
+            response=attempt(os.getenv("GEMINI_API_KEYK"))
+            if (response!="exceeded"):
+                return ({'reply':response})
+        elif i==4:
+            response=attempt(os.getenv("GEMINI_API_KEYH"))
+            if (response!="exceeded"):
+                return ({'reply':response})
+        else:
+            return ({'reply':"Sorry, API key limit exceeded,Please try again later after some time"})
 
 
 @app.route('/flight')
@@ -174,7 +198,6 @@ def predict_flight():
     return jsonify({'reply':price})
 
 if __name__ == "__main__":
-    import os
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
 

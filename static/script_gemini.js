@@ -4,12 +4,15 @@ document.addEventListener("DOMContentLoaded",function(){
 
     button.addEventListener('click',async function (e) {
         button.innerText='Generating';
+        button.disabled=true;
         const ques=document.getElementById('ques').value.trim();
         if (ques==''){
             button.innerText='Ask';
+            button.disabled=false;
             alert('Please Enter your query!!!')
         }else{
         button.disabled=true;
+        button.style.backgroundColor="black";
         let response=await fetch('/chat/gemini',{
             method:'POST',
             headers:{
@@ -22,6 +25,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
         const data=await response.json();
         button.disabled=false;
+        button.style.backgroundColor="red";
         button.innerText='Ask';
 
         let form=document.querySelector('form');
