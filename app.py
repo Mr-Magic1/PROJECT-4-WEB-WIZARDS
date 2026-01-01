@@ -149,7 +149,7 @@ def chat():
 
 @app.route("/chat/gemini", methods=["GET","POST"])
 def gemini():
-    for i in range(1,5):
+    for i in range(1,6):
         if i==1:
             response=attempt(os.getenv("GEMINI_API_KEY1"))
             if (response!="exceeded"):
@@ -164,6 +164,10 @@ def gemini():
                 return ({'reply':response})
         elif i==4:
             response=attempt(os.getenv("GEMINI_API_KEYH"))
+            if (response!="exceeded"):
+                return ({'reply':response})
+        elif i==5:
+            response=attempt(os.getenv("GEMINI_API_KEYM"))
             if (response!="exceeded"):
                 return ({'reply':response})
         else:
