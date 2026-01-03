@@ -23,7 +23,6 @@ body {
     margin-top: 20px;
     margin-bottom: 100px;
     display: flex;
-    flex-wrap: wrap; 
     align-items: center;
     justify-content: space-between;
     padding: 15px 30px;
@@ -76,21 +75,6 @@ h1{
         flex-direction: row-reverse;
 }
 
-@media (max-width: 768px) {
-    .card {
-        flex-direction: column;
-        text-align: left;
-    }
-
-    #flip1, #flip2 {
-        flex-direction: column;
-    }
-    .icon{
-        align-self: center;
-    }
-    
-}
-
 .icon {
     display: flex;
     flex-direction: column;
@@ -100,6 +84,99 @@ h1{
     width: 100vw;
     margin: 30px;
 }
+.para{
+    font-size:25px;
+    margin-left:6px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    word-spacing:15px ;
+    text-shadow: 0.2px 0.2px 1px hsl(323, 100%, 59%);
+    line-height:28px;
+    padding:5px
+}
+
+@media ( max-width: 768px) {
+    .card{
+        text-align:left;
+        flex-direction: column;
+    }
+
+    #flip1, #flip2 {
+        flex-direction: column;
+    }
+    .icon{
+        align-self:center;
+        
+        
+    }
+    #img2{
+    height:60px;
+    border-radius:40px ;
+    }
+    #B{
+    font-size:20px ;
+    }
+    #C{
+    margin-left:3px;
+    font-size:10px;
+    display: flex;
+    gap:10px; 
+    }
+}
+@media(max-width:1015px){
+   #img2{
+    border-radius:60px ;
+    height:60px;
+   }
+   #B{
+    font-size:40px ;
+    }
+    #C{
+    font-size:25px;
+    display: flex;
+    gap:10px; 
+    }
+
+    
+}
+@media(max-width:500px){
+    #img2{
+    height:50px;
+    border-radius:30px ;
+    }
+    #B{
+    font-size:1.07rem ;
+    }
+    #C{
+    font-size:13px;
+    display: flex;
+    gap:7px; 
+    }
+    h1{
+        font-size: 20px;
+    }
+    
+    .card{
+    width:100%;
+    background-color:rgb(227, 223, 245);
+    border-radius: 40px;
+    margin-bottom:200px ;
+    margin-left:5px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    display:flex;
+    }
+    .para{
+    font-size:20px;
+    padding: 0px;
+    word-spacing: 5px;
+    }
+    .icon{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    
+}
+
 
 .img {
     width: 100%;
@@ -139,15 +216,6 @@ h1{
     cursor: pointer;
 }
 
-.para{
-    font-size:25px;
-    margin-left:6px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    word-spacing:15px ;
-    text-shadow: 0.2px 0.2px 1px hsl(323, 100%, 59%);
-    line-height:28px;
-    padding:5px
-}
 
 footer {
     background-color: rgba(255, 255, 255, 0.8);
