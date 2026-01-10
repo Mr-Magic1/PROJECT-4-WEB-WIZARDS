@@ -8,7 +8,7 @@ model_review=joblib.load("model_review.pkl")
 vectorizer=joblib.load("vectorizer.pkl")
 #spam
 model_spam = joblib.load("model_spam.pkl")
-tfidfvectorizer = joblib.load("TfidfVectorizer")
+tfidfvectorizer = joblib.load("TfidfVectorizer.pkl")
 #diabetes
 import pandas as pd
 model_diabetes=joblib.load('model_diabetes.pkl')
