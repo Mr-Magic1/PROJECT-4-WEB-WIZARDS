@@ -123,12 +123,13 @@ This project is for educational and learning purposes.
 
 ```
 1. Kailash Vishwakarma (Team Leader) 
-Managed - Frontend , Backend and Machine Learning
+Managed - Backend and Machine Learning
 Machine Learning & Web Development Enthusiast
 ```
 ```
 2. Khushboo Yadav 
 Managed - Frontend Design of the website
+The Designer
 ```
 ```
 3. Hartik Verma
